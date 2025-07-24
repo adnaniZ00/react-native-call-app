@@ -1,3 +1,4 @@
+apply plugin: 'com.google.gms.google-services'
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
@@ -85,6 +86,11 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    buildFeatures {
+        viewBinding true
+    }
+
     signingConfigs {
         debug {
             storeFile file('debug.keystore')
@@ -110,6 +116,8 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
+
+    implementation 'com.google.firebase:firebase-messaging-ktx'
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
